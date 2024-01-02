@@ -26,6 +26,8 @@ let catHeader = document.querySelector("#wl-header-my-cat");
 let pedidoModalBtn = document.querySelector("#wl-pedido-modal-btn");
 let pedidoModalArea = document.querySelector("#wl-pedido-area");
 let pedidoModalCloseBtn = document.querySelector("#wl-pedido-close");
+let pedidoInputNome = document.querySelector("#wl-pedido-input-nome");
+let pedidoInputEnd = document.querySelector("#wl-pedido-input-end");
 let pedidoInput = document.querySelector("#wl-pedido-input");
 
 const listar = () => {
@@ -100,7 +102,28 @@ const listar = () => {
         )}<br><br>Qtd: <b>${item.qtd + item.unid}</b></span>`;
 
         let deleteBtn = document.createElement("button");
-        deleteBtn.innerHTML = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" width="26px" height="26px" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="114.402" y="220.724" style="fill:#fdba74;" width="274.813" height="276.96"></rect> <g> <path style="fill:#c2410c;" d="M182.746,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C197.06,415.895,190.652,422.305,182.746,422.305z"></path> <path style="fill:#c2410c;" d="M251.808,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C266.121,415.895,259.713,422.305,251.808,422.305z"></path> <path style="fill:#c2410c;" d="M320.869,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C335.182,415.895,328.774,422.305,320.869,422.305z"></path> <path style="fill:#c2410c;" d="M434.571,135.961c-8.435-13.251-21.524-22.423-36.856-25.828 c-7.712-1.722-15.362,3.152-17.076,10.869c-1.713,7.718,3.153,15.361,10.869,17.076c7.869,1.749,14.585,6.455,18.913,13.255 c4.328,6.8,5.75,14.879,4.002,22.748l-7.423,33.418L99.603,139.224l7.423-33.42c3.608-16.243,19.754-26.519,36.002-22.917 l145.2,32.249c7.713,1.713,15.361-3.153,17.076-10.869c1.713-7.718-3.153-15.361-10.869-17.076l-82.44-18.309l8.327-37.493 l122.96,27.308l-11.431,51.467c-1.713,7.718,3.153,15.361,10.869,17.076c1.045,0.232,2.088,0.344,3.116,0.344 c6.563,0,12.478-4.542,13.96-11.213l14.534-65.44c0.823-3.706,0.14-7.587-1.898-10.789c-2.038-3.202-5.266-5.463-8.972-6.286 L212.555,0.342c-7.713-1.709-15.362,3.152-17.076,10.869l-11.43,51.466l-34.815-7.732C117.579,47.909,86.11,67.948,79.079,99.6 l-10.526,47.391c-1.713,7.718,3.153,15.361,10.869,17.076l190.666,42.347H114.402c-7.905,0-14.313,6.409-14.313,14.313v276.96 c0,7.904,6.408,14.313,14.313,14.313h274.81c7.905,0,14.313-6.409,14.313-14.313V236.049l11.243,2.498 c1.026,0.229,2.067,0.341,3.103,0.341c2.701,0,5.37-0.764,7.686-2.239c3.202-2.038,5.463-5.266,6.288-8.972l10.526-47.391 C445.776,164.954,443.006,149.212,434.571,135.961z M374.9,483.374H128.716V235.04H374.9V483.374z"></path> </g> </g></svg>`;
+        deleteBtn.innerHTML = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 512 512" xml:space="preserve" width="26px" height="26px" fill="#000000">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <rect class="svg-third" x="114.402" y="220.724" style="fill:#fdba74;" width="274.813" height="276.96"></rect>
+          <g>
+            <path class="svg-secondary" style="fill:#c2410c;"
+              d="M182.746,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C197.06,415.895,190.652,422.305,182.746,422.305z">
+            </path>
+            <path class="svg-secondary" style="fill:#c2410c;"
+              d="M251.808,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C266.121,415.895,259.713,422.305,251.808,422.305z">
+            </path>
+            <path class="svg-secondary" style="fill:#c2410c;"
+              d="M320.869,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C335.182,415.895,328.774,422.305,320.869,422.305z">
+            </path>
+            <path class="svg-secondary" style="fill:#c2410c;"
+              d="M434.571,135.961c-8.435-13.251-21.524-22.423-36.856-25.828 c-7.712-1.722-15.362,3.152-17.076,10.869c-1.713,7.718,3.153,15.361,10.869,17.076c7.869,1.749,14.585,6.455,18.913,13.255 c4.328,6.8,5.75,14.879,4.002,22.748l-7.423,33.418L99.603,139.224l7.423-33.42c3.608-16.243,19.754-26.519,36.002-22.917 l145.2,32.249c7.713,1.713,15.361-3.153,17.076-10.869c1.713-7.718-3.153-15.361-10.869-17.076l-82.44-18.309l8.327-37.493 l122.96,27.308l-11.431,51.467c-1.713,7.718,3.153,15.361,10.869,17.076c1.045,0.232,2.088,0.344,3.116,0.344 c6.563,0,12.478-4.542,13.96-11.213l14.534-65.44c0.823-3.706,0.14-7.587-1.898-10.789c-2.038-3.202-5.266-5.463-8.972-6.286 L212.555,0.342c-7.713-1.709-15.362,3.152-17.076,10.869l-11.43,51.466l-34.815-7.732C117.579,47.909,86.11,67.948,79.079,99.6 l-10.526,47.391c-1.713,7.718,3.153,15.361,10.869,17.076l190.666,42.347H114.402c-7.905,0-14.313,6.409-14.313,14.313v276.96 c0,7.904,6.408,14.313,14.313,14.313h274.81c7.905,0,14.313-6.409,14.313-14.313V236.049l11.243,2.498 c1.026,0.229,2.067,0.341,3.103,0.341c2.701,0,5.37-0.764,7.686-2.239c3.202-2.038,5.463-5.266,6.288-8.972l10.526-47.391 C445.776,164.954,443.006,149.212,434.571,135.961z M374.9,483.374H128.716V235.04H374.9V483.374z">
+            </path>
+          </g>
+        </g>
+      </svg>`;
         deleteBtn.addEventListener("click", () => {
           const confirmacao = confirm(
             `Tem certeza que deseja apagar este item? \n"${item.value}"`
@@ -222,7 +245,28 @@ const listarCategorias = () => {
       li.innerHTML = category;
 
       let deleteBtn = document.createElement("button");
-      deleteBtn.innerHTML = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" width="26px" height="26px" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="114.402" y="220.724" style="fill:#fdba74;" width="274.813" height="276.96"></rect> <g> <path style="fill:#c2410c;" d="M182.746,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C197.06,415.895,190.652,422.305,182.746,422.305z"></path> <path style="fill:#c2410c;" d="M251.808,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C266.121,415.895,259.713,422.305,251.808,422.305z"></path> <path style="fill:#c2410c;" d="M320.869,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C335.182,415.895,328.774,422.305,320.869,422.305z"></path> <path style="fill:#c2410c;" d="M434.571,135.961c-8.435-13.251-21.524-22.423-36.856-25.828 c-7.712-1.722-15.362,3.152-17.076,10.869c-1.713,7.718,3.153,15.361,10.869,17.076c7.869,1.749,14.585,6.455,18.913,13.255 c4.328,6.8,5.75,14.879,4.002,22.748l-7.423,33.418L99.603,139.224l7.423-33.42c3.608-16.243,19.754-26.519,36.002-22.917 l145.2,32.249c7.713,1.713,15.361-3.153,17.076-10.869c1.713-7.718-3.153-15.361-10.869-17.076l-82.44-18.309l8.327-37.493 l122.96,27.308l-11.431,51.467c-1.713,7.718,3.153,15.361,10.869,17.076c1.045,0.232,2.088,0.344,3.116,0.344 c6.563,0,12.478-4.542,13.96-11.213l14.534-65.44c0.823-3.706,0.14-7.587-1.898-10.789c-2.038-3.202-5.266-5.463-8.972-6.286 L212.555,0.342c-7.713-1.709-15.362,3.152-17.076,10.869l-11.43,51.466l-34.815-7.732C117.579,47.909,86.11,67.948,79.079,99.6 l-10.526,47.391c-1.713,7.718,3.153,15.361,10.869,17.076l190.666,42.347H114.402c-7.905,0-14.313,6.409-14.313,14.313v276.96 c0,7.904,6.408,14.313,14.313,14.313h274.81c7.905,0,14.313-6.409,14.313-14.313V236.049l11.243,2.498 c1.026,0.229,2.067,0.341,3.103,0.341c2.701,0,5.37-0.764,7.686-2.239c3.202-2.038,5.463-5.266,6.288-8.972l10.526-47.391 C445.776,164.954,443.006,149.212,434.571,135.961z M374.9,483.374H128.716V235.04H374.9V483.374z"></path> </g> </g></svg>`;
+      deleteBtn.innerHTML = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 512 512" xml:space="preserve" width="26px" height="26px" fill="#000000">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <rect class="svg-third" x="114.402" y="220.724" style="fill:#fdba74;" width="274.813" height="276.96"></rect>
+        <g>
+          <path class="svg-secondary" style="fill:#c2410c;"
+            d="M182.746,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C197.06,415.895,190.652,422.305,182.746,422.305z">
+          </path>
+          <path class="svg-secondary" style="fill:#c2410c;"
+            d="M251.808,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C266.121,415.895,259.713,422.305,251.808,422.305z">
+          </path>
+          <path class="svg-secondary" style="fill:#c2410c;"
+            d="M320.869,422.305c-7.905,0-14.313-6.409-14.313-14.313v-91.604c0-7.904,6.408-14.313,14.313-14.313 c7.905,0,14.313,6.409,14.313,14.313v91.604C335.182,415.895,328.774,422.305,320.869,422.305z">
+          </path>
+          <path class="svg-secondary" style="fill:#c2410c;"
+            d="M434.571,135.961c-8.435-13.251-21.524-22.423-36.856-25.828 c-7.712-1.722-15.362,3.152-17.076,10.869c-1.713,7.718,3.153,15.361,10.869,17.076c7.869,1.749,14.585,6.455,18.913,13.255 c4.328,6.8,5.75,14.879,4.002,22.748l-7.423,33.418L99.603,139.224l7.423-33.42c3.608-16.243,19.754-26.519,36.002-22.917 l145.2,32.249c7.713,1.713,15.361-3.153,17.076-10.869c1.713-7.718-3.153-15.361-10.869-17.076l-82.44-18.309l8.327-37.493 l122.96,27.308l-11.431,51.467c-1.713,7.718,3.153,15.361,10.869,17.076c1.045,0.232,2.088,0.344,3.116,0.344 c6.563,0,12.478-4.542,13.96-11.213l14.534-65.44c0.823-3.706,0.14-7.587-1.898-10.789c-2.038-3.202-5.266-5.463-8.972-6.286 L212.555,0.342c-7.713-1.709-15.362,3.152-17.076,10.869l-11.43,51.466l-34.815-7.732C117.579,47.909,86.11,67.948,79.079,99.6 l-10.526,47.391c-1.713,7.718,3.153,15.361,10.869,17.076l190.666,42.347H114.402c-7.905,0-14.313,6.409-14.313,14.313v276.96 c0,7.904,6.408,14.313,14.313,14.313h274.81c7.905,0,14.313-6.409,14.313-14.313V236.049l11.243,2.498 c1.026,0.229,2.067,0.341,3.103,0.341c2.701,0,5.37-0.764,7.686-2.239c3.202-2.038,5.463-5.266,6.288-8.972l10.526-47.391 C445.776,164.954,443.006,149.212,434.571,135.961z M374.9,483.374H128.716V235.04H374.9V483.374z">
+          </path>
+        </g>
+      </g>
+    </svg>`;
       deleteBtn.addEventListener("click", () => {
         const confirmacao = confirm(
           `Você tem certeza que deseja apagar esta categoria?\n"${category}"\n⚠️ Esta ação apagará todos os itens relacionados à esta categoria!`
@@ -313,10 +357,18 @@ wpp.addEventListener("click", () => {
   ) {
     let dataObject = JSON.parse(localStorageData);
 
+    function adicionarZero(numero) {
+      if (numero < 10) {
+        return "0" + numero;
+      } else {
+        return numero;
+      }
+    }
+
     let dataAtual = new Date();
 
-    let dia = dataAtual.getDate();
-    let mes = dataAtual.getMonth() + 1;
+    let dia = adicionarZero(dataAtual.getDate());
+    let mes = adicionarZero(dataAtual.getMonth() + 1);
     let ano = dataAtual.getFullYear();
     let dataFormatada = `${dia}/${mes}/${ano}`;
 
@@ -329,6 +381,9 @@ wpp.addEventListener("click", () => {
     let message = "";
     message += `―――――――――――――――――` + "\n";
     message += `         _*🥕   SacolApp   🍅*_` + "\n";
+    message += `―――――――――――――――――` + "\n";
+    message += `*👤 Nome:* ${pedidoInputNome.value}` + "\n";
+    message += `*📍 Endereço:* ${pedidoInputEnd.value}` + "\n";
     message += `―――――――――――――――――` + "\n";
     message += "\n";
     message += `🛒 *Meu pedido [${dataFormatada}]*` + "\n";
@@ -345,10 +400,21 @@ wpp.addEventListener("click", () => {
     if (categoriasNaoVazias.length > 0) {
       $("#wl-wpp").prop("disabled", true);
       $("#wl-wpp").text("Enviando...");
+
+      localStorage.setItem("nome", pedidoInputNome.value);
+      localStorage.setItem("endereco", pedidoInputEnd.value);
+      localStorage.setItem("wpp", pedidoInput.value);
+
       $.ajax({
         type: "POST",
         url: "https://sacolapp.cashiers.com.br/controllers/pedidos/create",
-        data: { message: message, pedidoInput: $("#wl-pedido-input").val() },
+        // url: "http://localhost/painel_sacolapp/controllers/pedidos/create",
+        data: {
+          message: message,
+          pedidoInput: $("#wl-pedido-input").val(),
+          pedidoInputNome: $("#wl-pedido-input-nome").val(),
+          pedidoInputEnd: $("#wl-pedido-input-end").val(),
+        },
         success: function (response) {
           // Codifica a mensagem para ser usada no link do WhatsApp
           let encodedMessage = encodeURIComponent(message);
@@ -357,10 +423,9 @@ wpp.addEventListener("click", () => {
           let whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
           // Redireciona o usuário para o WhatsApp
-          pedidoInput.value = "";
           pedidoModalArea.style.display = "none";
           labelCat.style.zIndex = "1";
-          wpp.disabled = true;
+          $("#wl-wpp").prop("disabled", false);
           $("#wl-wpp").html(
             '<svg id="fill-svg" height="26px" width="26px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000">' +
               '<g id="SVGRepo_bgCarrier" stroke-width="0"></g>' +
@@ -463,19 +528,48 @@ function autoResize() {
 listar();
 listarCategorias();
 
+let getNome = localStorage.getItem("nome");
+let getEnd = localStorage.getItem("endereco");
+let getWpp = localStorage.getItem("wpp");
+
+if ("nome" in localStorage) {
+  if (getNome != null && getNome.trim() !== "") {
+    pedidoInputNome.value = getNome;
+  }
+}
+if ("endereco" in localStorage) {
+  if (getEnd != null && getEnd.trim() !== "") {
+    pedidoInputEnd.value = getEnd;
+  }
+}
+if ("wpp" in localStorage) {
+  if (getWpp != null && getWpp.trim() !== "") {
+    pedidoInput.value = getWpp;
+  }
+}
+
+function checkPedido() {
+  if (
+    pedidoInput.value.replace(/\D/g, "").length == 11 &&
+    pedidoInputNome.value.trim().length > 0 &&
+    pedidoInputEnd.value.trim().length > 0
+  ) {
+    $("#wl-wpp").removeAttr("disabled");
+  } else {
+    $("#wl-wpp").attr("disabled", "disabled");
+  }
+}
+
+checkPedido();
+
+$("#wl-pedido-input-nome").on("input", function () {
+  checkPedido();
+});
+$("#wl-pedido-input-end").on("input", function () {
+  checkPedido();
+});
 $("#wl-pedido-input")
   .mask("(00) 00000-0000")
   .on("input", function () {
-    // Remova os caracteres de formatação da máscara para obter apenas os dígitos
-    var numericValue = $(this).cleanVal();
-
-    // Verifique se o valor possui a quantidade correta de dígitos
-    if (numericValue.length === 11) {
-      // Ajuste conforme necessário
-      // Remova o atributo 'disabled' do botão
-      $("#wl-wpp").removeAttr("disabled");
-    } else {
-      // Adicione o atributo 'disabled' ao botão se não estiver de acordo
-      $("#wl-wpp").attr("disabled", "disabled");
-    }
+    checkPedido();
   });
